@@ -1,4 +1,4 @@
-package com.choua9a.demand;
+package com.accessSystem.demand;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

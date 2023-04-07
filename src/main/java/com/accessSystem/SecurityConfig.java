@@ -1,4 +1,4 @@
-package com.choua9a;
+package com.accessSystem;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

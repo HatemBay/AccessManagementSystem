@@ -1,6 +1,5 @@
-package com.choua9a.user;
+package com.accessSystem.user;
 
-import com.choua9a.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

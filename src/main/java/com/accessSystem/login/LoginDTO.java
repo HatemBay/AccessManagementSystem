@@ -1,4 +1,4 @@
-package com.choua9a.login;
+package com.accessSystem.login;
 
 public class LoginDTO {
     private String email;

@@ -1,9 +1,7 @@
-package com.choua9a.demand;
+package com.accessSystem.demand;
 
-import com.choua9a.login.LoginDTO;
-import com.choua9a.login.LoginMessage;
-import com.choua9a.demand.Demand;
-import com.choua9a.demand.DemandDTO;
+import com.accessSystem.login.LoginDTO;
+import com.accessSystem.login.LoginMessage;
 
 import java.util.List;
 

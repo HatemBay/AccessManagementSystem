@@ -1,4 +1,4 @@
-package com.choua9a.user;
+package com.accessSystem.user;
 
 public enum Role {
     CUSTOMER, ADMIN

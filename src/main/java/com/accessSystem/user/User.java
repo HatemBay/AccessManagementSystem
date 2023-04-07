@@ -1,6 +1,6 @@
-package com.choua9a.user;
+package com.accessSystem.user;
 
-import com.choua9a.demand.Demand;
+import com.accessSystem.demand.Demand;
 import jakarta.persistence.*;
 
 import java.util.List;
