@@ -6,11 +6,10 @@ import com.accessSystem.login.LoginMessage;
 import java.util.List;
 
 public interface DemandService {
-    public int addDemand(DemandDTO demandDTO);
-    public int modifyDemand(DemandDTO demandDTO, int id);
+    public int addDemand(Demand demand);
+    public int modifyDemand(Demand demand, int id);
     public Demand findDemand(int id);
-    public Demand findDemandByEmail(String email);
     public List<Demand> getAllDemands();
+    public List<Demand> getAllDemandsByUserId(int userId);
     public void deleteDemand(int id);
-    public LoginMessage loginDemand(LoginDTO loginDTO);
 }

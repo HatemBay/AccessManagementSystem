@@ -1,12 +1,14 @@
 package com.accessSystem.user;
 
 import com.accessSystem.demand.Demand;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.List;
 import java.util.Objects;
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +20,7 @@ public class User {
     private String cin;
     private String password;
     private Role role;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
     List<Demand> demands;
 
     public User(int id, String name, String companyName, String email, String cin, String password, Role role) {

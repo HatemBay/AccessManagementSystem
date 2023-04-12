@@ -8,18 +8,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("demands")
 public class DemandController {
     @Autowired
     DemandService demandService;
 
     @PostMapping("/new")
-    public int newDemand(@RequestBody DemandDTO demandDTO) {
-        return demandService.addDemand(demandDTO);
+    public int newDemand(@RequestBody Demand demand) {
+        return demandService.addDemand(demand);
     }
 
     @PutMapping("/{id}")
-    public int updateDemand(@RequestBody DemandDTO demandDTO, @PathVariable int id) {
-        return demandService.modifyDemand(demandDTO, id);
+    public int updateDemand(@RequestBody Demand demand, @PathVariable int id) {
+        return demandService.modifyDemand(demand, id);
     }
 
     @GetMapping("/{id}")
@@ -30,6 +31,10 @@ public class DemandController {
     @GetMapping("/get-all")
     public List<Demand> getAllDemands() {
         return demandService.getAllDemands();
+    }
+    @GetMapping("/get-all/user/{userId}")
+    public List<Demand> getAllDemandsByUserId(@PathVariable int userId) {
+        return demandService.getAllDemandsByUserId(userId);
     }
 
     @DeleteMapping("/delete/{id}")

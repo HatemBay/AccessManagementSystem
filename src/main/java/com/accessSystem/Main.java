@@ -52,7 +52,7 @@ public class Main {
 //        System.out.println(user);
 //        return args -> {
 //            Stream.of("demand1, demand2").forEach(name -> {
-//                Demand demand = new Demand(user,"www." + name + ".com" ,"sdff",name + "Company" , Choice.YES, Choice.YES, "fqsq", "fldsjs", new Date(), new Date(), "sqxesq", "25656595", new Date(), new Date());
+//                Demand demand = new Demand(user,"www." + name + ".com" ,"sdff",name + "Company" , Choice.YES, Choice.YES, new Date(), new Date(), "09:00", "11:00", "sqxesq", "25656595", new Date(), new Date());
 //                demandRepository.save(demand);
 //            });
 //            demandRepository.findAll().forEach(System.out::println);
