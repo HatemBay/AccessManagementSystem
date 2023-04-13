@@ -14,7 +14,6 @@ public class Demand {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
     User user;
     String concernedSite;
     String concernedLocal;
@@ -25,6 +24,7 @@ public class Demand {
     Date visitDayEnd;
     String visitDateStart;
     String visitDateEnd;
+    Boolean state;
     String refusalReason;
     String notes;
     Date created_at;
@@ -33,7 +33,7 @@ public class Demand {
     public Demand() {
     }
 
-    public Demand(User user, String concernedSite, String concernedLocal, String demandObject, Choice equipmentAdd, Choice equipmentRecovery, Date visitDayStart, Date visitDayEnd, String visitDateStart, String visitDateEnd, String refusalReason, String notes, Date created_at, Date updated_at) {
+    public Demand(User user, String concernedSite, String concernedLocal, String demandObject, Choice equipmentAdd, Choice equipmentRecovery, Date visitDayStart, Date visitDayEnd, String visitDateStart, String visitDateEnd, Boolean state, String refusalReason, String notes, Date created_at, Date updated_at) {
         this.user = user;
         this.concernedSite = concernedSite;
         this.concernedLocal = concernedLocal;
@@ -44,13 +44,14 @@ public class Demand {
         this.visitDayEnd = visitDayEnd;
         this.visitDateStart = visitDateStart;
         this.visitDateEnd = visitDateEnd;
+        this.state = state;
         this.refusalReason = refusalReason;
         this.notes = notes;
         this.created_at = created_at;
         this.updated_at = updated_at;
     }
 
-    public Demand(int id, User user, String concernedSite, String concernedLocal, String demandObject, Choice equipmentAdd, Choice equipmentRecovery, Date visitDayStart, Date visitDayEnd, String visitDateStart, String visitDateEnd, String refusalReason, String notes, Date created_at, Date updated_at) {
+    public Demand(int id, User user, String concernedSite, String concernedLocal, String demandObject, Choice equipmentAdd, Choice equipmentRecovery, Date visitDayStart, Date visitDayEnd, String visitDateStart, String visitDateEnd, Boolean state, String refusalReason, String notes, Date created_at, Date updated_at) {
         this.id = id;
         this.user = user;
         this.concernedSite = concernedSite;
@@ -62,13 +63,14 @@ public class Demand {
         this.visitDayEnd = visitDayEnd;
         this.visitDateStart = visitDateStart;
         this.visitDateEnd = visitDateEnd;
+        this.state = state;
         this.refusalReason = refusalReason;
         this.notes = notes;
         this.created_at = created_at;
         this.updated_at = updated_at;
     }
 
-    public Demand(int id, User user, String concernedSite, String concernedLocal, String demandObject, Choice equipmentAdd, Choice equipmentRecovery, Date visitDayStart, Date visitDayEnd, String visitDateStart, String visitDateEnd, String refusalReason, String notes) {
+    public Demand(int id, User user, String concernedSite, String concernedLocal, String demandObject, Choice equipmentAdd, Choice equipmentRecovery, Date visitDayStart, Date visitDayEnd, String visitDateStart, String visitDateEnd, Boolean state, String refusalReason, String notes) {
         this.id = id;
         this.user = user;
         this.concernedSite = concernedSite;
@@ -80,6 +82,7 @@ public class Demand {
         this.visitDayEnd = visitDayEnd;
         this.visitDateStart = visitDateStart;
         this.visitDateEnd = visitDateEnd;
+        this.state = state;
         this.refusalReason = refusalReason;
         this.notes = notes;
     }
@@ -113,6 +116,7 @@ public class Demand {
                 ", visitDayEnd=" + visitDayEnd +
                 ", visitDateStart='" + visitDateStart + '\'' +
                 ", visitDateEnd='" + visitDateEnd + '\'' +
+                ", state='" + state + '\'' +
                 ", refusalReason='" + refusalReason + '\'' +
                 ", notes='" + notes + '\'' +
                 ", created_at=" + created_at +
@@ -125,12 +129,12 @@ public class Demand {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Demand demand = (Demand) o;
-        return id == demand.id && Objects.equals(user, demand.user) && Objects.equals(concernedSite, demand.concernedSite) && Objects.equals(concernedLocal, demand.concernedLocal) && Objects.equals(demandObject, demand.demandObject) && equipmentAdd == demand.equipmentAdd && equipmentRecovery == demand.equipmentRecovery && Objects.equals(visitDayStart, demand.visitDayStart) && Objects.equals(visitDayEnd, demand.visitDayEnd) && Objects.equals(visitDateStart, demand.visitDateStart) && Objects.equals(visitDateEnd, demand.visitDateEnd) && Objects.equals(refusalReason, demand.refusalReason) && Objects.equals(notes, demand.notes) && Objects.equals(created_at, demand.created_at) && Objects.equals(updated_at, demand.updated_at);
+        return id == demand.id && Objects.equals(user, demand.user) && Objects.equals(concernedSite, demand.concernedSite) && Objects.equals(concernedLocal, demand.concernedLocal) && Objects.equals(demandObject, demand.demandObject) && equipmentAdd == demand.equipmentAdd && equipmentRecovery == demand.equipmentRecovery && Objects.equals(visitDayStart, demand.visitDayStart) && Objects.equals(visitDayEnd, demand.visitDayEnd) && Objects.equals(visitDateStart, demand.visitDateStart) && Objects.equals(visitDateEnd, demand.visitDateEnd) && Objects.equals(state, demand.state) && Objects.equals(refusalReason, demand.refusalReason) && Objects.equals(notes, demand.notes) && Objects.equals(created_at, demand.created_at) && Objects.equals(updated_at, demand.updated_at);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, concernedSite, concernedLocal, demandObject, equipmentAdd, equipmentRecovery, visitDayStart, visitDayEnd, visitDateStart, visitDateEnd, refusalReason, notes, created_at, updated_at);
+        return Objects.hash(id, user, concernedSite, concernedLocal, demandObject, equipmentAdd, equipmentRecovery, visitDayStart, visitDayEnd, visitDateStart, visitDateEnd, state, refusalReason, notes, created_at, updated_at);
     }
 
     public int getId() {
@@ -219,6 +223,14 @@ public class Demand {
 
     public void setVisitDateEnd(String visitDateEnd) {
         this.visitDateEnd = visitDateEnd;
+    }
+
+    public Boolean getState() {
+        return state;
+    }
+
+    public void setState(Boolean state) {
+        this.state = state;
     }
 
     public String getRefusalReason() {
