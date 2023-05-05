@@ -27,8 +27,8 @@ public class UserServiceImpl implements UserService {
                 userDTO.getEmail(),
                 userDTO.getCin(),
                 this.passwordEncoder.encode(userDTO.getPassword()),
-                Role.CUSTOMER
-        );
+                userDTO.getRole()
+                );
         return userRepository.save(user).getId();
     }
     @Override
@@ -40,6 +40,7 @@ public class UserServiceImpl implements UserService {
         user.setCompanyName(userDTO.getCompanyName());
         user.setEmail(userDTO.getEmail());
         user.setCin(userDTO.getCin());
+        user.setRole(userDTO.getRole());
         if (userDTO.getPassword().equals("")) {
             user.setPassword(user.getPassword());
         } else {
